@@ -1,19 +1,18 @@
 package openpoll
 
 import (
+	"github.com/Sirupsen/logrus"
 	"github.com/bot-api/telegram"
 	"github.com/bot-api/telegram/telebot"
-	"golang.org/x/net/context"
-	"github.com/Sirupsen/logrus"
-	"github.com/wutiarn/tg-openvote/cmdhandlers"
 	"github.com/davecgh/go-spew/spew"
+	"github.com/wutiarn/tg-openvote/cmdhandlers"
+	"golang.org/x/net/context"
 )
-
 
 func Run(token string, debug bool) {
 	logrus.SetFormatter(&logrus.TextFormatter{
-		ForceColors: true,
-		FullTimestamp:true,
+		ForceColors:   true,
+		FullTimestamp: true,
 	})
 
 	api := telegram.New(token)

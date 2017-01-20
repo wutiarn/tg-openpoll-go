@@ -1,15 +1,15 @@
 package openpoll
 
 import (
-	"golang.org/x/net/context"
-	"github.com/bot-api/telegram/telebot"
-	"github.com/bot-api/telegram"
-	"github.com/davecgh/go-spew/spew"
-	"strings"
 	"github.com/Sirupsen/logrus"
+	"github.com/bot-api/telegram"
+	"github.com/bot-api/telegram/telebot"
+	"github.com/davecgh/go-spew/spew"
+	"golang.org/x/net/context"
+	"strings"
 )
 
-func HandleInlineCallback(ctx context.Context, cb *telegram.CallbackQuery) (err error)  {
+func HandleInlineCallback(ctx context.Context, cb *telegram.CallbackQuery) (err error) {
 	api := telebot.GetAPI(ctx)
 
 	//redis, err := GetRedisConnection(); if err != nil {
@@ -34,11 +34,11 @@ func HandleInlineCallback(ctx context.Context, cb *telegram.CallbackQuery) (err 
 	//}
 
 	//voteResult := cbDataParts[2]
-	
+
 	cfg := telegram.AnswerCallbackCfg{
 		CallbackQueryID: cb.ID,
-		Text: "Vote confirmed",
-		ShowAlert: false,
+		Text:            "Vote confirmed",
+		ShowAlert:       false,
 	}
 
 	_, err = api.AnswerCallbackQuery(ctx, cfg)
