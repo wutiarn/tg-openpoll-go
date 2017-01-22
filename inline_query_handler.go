@@ -52,7 +52,7 @@ func HandleInlineQuery(ctx context.Context, query *telegram.InlineQuery) (err er
 		pollTopic := fmt.Sprintf("*%v*", query.Query)
 
 		topicKey := fmt.Sprintf("openpoll_%s_topic", pollId)
-		variantsKey := fmt.Sprintf("openpoll_%s_variant", pollId)
+		variantsKey := fmt.Sprintf("openpoll_%s_variants", pollId)
 
 		redis.Do("SET", topicKey, pollTopic)
 		redis.Do("EXPIRE", topicKey, expirationTime)
